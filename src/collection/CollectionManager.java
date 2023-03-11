@@ -4,8 +4,12 @@ import commands.manager.CommandManager;
 import commands.manager.CreateObject;
 import dragon.Color;
 import dragon.Dragon;
+import dragon.Person;
 import json.JsonManager;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.util.*;
 
@@ -194,6 +198,21 @@ public class CollectionManager {
     public static void print_field_ascending_killer(){
         for(Dragon dragon : CollectionManager.getLinkedList()) {
             getInfoKiller(dragon.getKiller());
+        }
+    }
+    public static void execute_script(String file){
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println("===============================================================\n" + line);
+                CommandManager.executeCommand(line.split(" "));
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } catch (SecurityException e) {
+            System.out.println("Недостаточно прав для открытия файла.");
+        } catch (NullPointerException e) {
+            System.out.println("Файл пуст");
         }
     }
 }

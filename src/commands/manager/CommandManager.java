@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CommandManager {
-    private final HashMap<String, Command> commandMap = new HashMap<>();
+    private static final HashMap<String, Command> commandMap = new HashMap<>();
     private static final ArrayList<String> commandHistory = new ArrayList<>();
 
     public void command(String name, Command command) {
         commandMap.put(name, command);
     }
-    public void executeCommand(String[] commandName) {
+    public static void executeCommand(String[] commandName) {
         try {
             commandHistory.add(commandName[0]);
             Command command = commandMap.get(commandName[0]);

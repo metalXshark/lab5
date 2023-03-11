@@ -1,0 +1,15 @@
+info
+show
+help
+min_by_color
+save
+remove_first
+remove_head
+show
+group_counting_by_name
+print_field_ascending_killer
+clear
+help
+show
+history
+exit

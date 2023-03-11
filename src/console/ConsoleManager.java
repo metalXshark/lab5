@@ -19,7 +19,7 @@ public class ConsoleManager {
         manager.command("remove_by_id", new RemoveById());
         manager.command("clear", new Clear());
         manager.command("save", new Save());
-
+        manager.command("execute_script", new ExecuteScript());
         manager.command("exit", new Exit());
         manager.command("remove_first", new RemoveFirst());
         manager.command("remove_head", new RemoveHead());
