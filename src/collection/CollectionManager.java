@@ -65,6 +65,14 @@ public class CollectionManager {
         System.out.println("Убийца дракона          –  " + dragon.getKiller().getName());
         System.out.println("---------------------------------------------------------");
     }
+    public static void getInfoKiller(Person person) {
+        System.out.println("ID паспорта –  " + person.getPassportID());
+        System.out.println("Имя убийцы  –  " + person.getName());
+        System.out.println("Рост        –  " + person.getHeight());
+        System.out.println("Вес         –  " + person.getWeight());
+        System.out.println("Цвет глаз   –  " + person.getEyeColor());
+        System.out.println("---------------------------------------------");
+    }
 
     public static void add(Dragon dragon) {
         collection.add(dragon);
@@ -184,6 +192,8 @@ public class CollectionManager {
         System.out.println(group_names);
     }
     public static void print_field_ascending_killer(){
-
+        for(Dragon dragon : CollectionManager.getLinkedList()) {
+            getInfoKiller(dragon.getKiller());
+        }
     }
 }
